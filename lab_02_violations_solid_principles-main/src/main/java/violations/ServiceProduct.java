@@ -1,17 +1,14 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package violations;
 
-/**
- *
- * @author jacks
- */
-public class ServiceProduct extends Product {
+import solutions.Serviceable;
 
-    public ServiceProduct(String name, double basePrice) {
-        super(name, basePrice, 0.0);
+public class ServiceProduct extends Product implements Serviceable{
+
+    private int duration;
+    
+    public ServiceProduct(String name, double basePrice, int duration) {
+        super(name, basePrice);
+        this.duration = duration;
     }
 
     @Override
@@ -20,13 +17,12 @@ public class ServiceProduct extends Product {
     }
 
     @Override
-    public double calculateShippingCost() {
-        // VIOLACIÓN LSP: Los servicios no se envían físicamente
-        return 0.0; // Comportamiento inconsistente - debería ser null o excepción
+    public void scheduleService() {
+        System.out.println("Servicio: '" + name + "'");
     }
-
+    
     @Override
-    public boolean requiresPhysicalDelivery() {
-        return false;
+    public int getServiceDuration() {
+        return duration;
     }
 }

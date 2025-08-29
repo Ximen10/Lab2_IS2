@@ -11,8 +11,8 @@ public class NotificationService {
     
     // Responsabilidad 3: Envío de notificaciones
     public void sendWelcomeEmail() {
-        System.out.println("Enviando email de bienvenida a: " + user.email);
-        System.out.println("Asunto: ¡Bienvenido " + user.name + "!");
-        System.out.println("Cuerpo: Gracias por registrarte como usuario " + user.userType);
+        System.out.println("Enviando email de bienvenida a: " + user.getEmail());
+        System.out.println("Asunto: ¡Bienvenido " + user.getName()+ "!");
+        System.out.println("Cuerpo: Gracias por registrarte como usuario " + user.getUserType());
     }
 }

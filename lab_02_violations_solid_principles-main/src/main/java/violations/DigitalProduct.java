@@ -1,17 +1,16 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package violations;
 
-/**
- *
- * @author jacks
- */
-public class DigitalProduct extends Product {
+import solutions.Downloadable;
 
-    public DigitalProduct(String name, double basePrice) {
-        super(name, basePrice, 0.0); // Los productos digitales no tienen peso
+public class DigitalProduct extends Product implements Downloadable{
+
+    private String downloadUrl;
+    private long fileSize;
+    
+    public DigitalProduct(String name, double basePrice, String downloadUrl, long fileSize) {
+        super(name, basePrice); // Los productos digitales no tienen peso
+        this.downloadUrl = downloadUrl;
+        this.fileSize = fileSize;
     }
 
     @Override
@@ -20,14 +19,12 @@ public class DigitalProduct extends Product {
     }
 
     @Override
-    public double calculateShippingCost() {
-        // VIOLACIÓN LSP: Los productos digitales no deberían tener costo de envío
-        // pero la clase base obliga a implementar este método
-        throw new UnsupportedOperationException("Los productos digitales no tienen costo de envío");
+    public String getDownloadUrl(){
+        return downloadUrl;
     }
-
+    
     @Override
-    public boolean requiresPhysicalDelivery() {
-        return false;
+    public long getFileSize(){
+        return fileSize;
     }
 }

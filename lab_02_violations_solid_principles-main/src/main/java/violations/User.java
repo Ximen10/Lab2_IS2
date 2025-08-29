@@ -1,21 +1,13 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */ 
 package violations;
 
 import java.util.regex.Pattern;
 
-/**
- *
- * @author jacks
- */
 public class User {
 
-    public String name;
-    public String email;
-    public String userType; // "PREMIUM", "REGULAR", "VIP"
-    public double totalPurchases;
+    private String name;
+    private String email;
+    private String userType; // "PREMIUM", "REGULAR", "VIP"
+    private double totalPurchases;
 
     public User(String name, String email, String userType, double totalPurchases) {
         this.name = name;

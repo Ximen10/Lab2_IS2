@@ -9,15 +9,16 @@ public class UserReportGenerator {
 
     public UserReportGenerator(User user) {
         this.user = user;
+        this.discal = new DiscountCalculator(user);
     }
     
     // Responsabilidad 4: Generación de reportes
     public String generateUserReport() {
         return "=== REPORTE DE USUARIO ===\n"
-                + "Nombre: " + user.name + "\n"
-                + "Email: " + user.email + "\n"
-                + "Tipo: " + user.userType + "\n"
-                + "Total Compras: $" + user.totalPurchases + "\n"
+                + "Nombre: " + user.getName() + "\n"
+                + "Email: " + user.getEmail() + "\n"
+                + "Tipo: " + user.getUserType() + "\n"
+                + "Total Compras: $" + user.getTotalPurchases() + "\n"
                 + "Descuento Aplicable: " + (discal.calculateDiscount() * 100) + "%\n";
     }
 }

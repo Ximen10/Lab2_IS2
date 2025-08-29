@@ -12,14 +12,14 @@ public class UserValidator {
   
     // Responsabilidad 1: Validación de usuario
     public boolean validateUser() {
-        if (user.name == null || user.name.trim().isEmpty()) {
+        if (user.getName() == null || user.getName().trim().isEmpty()) {
             return false;
         }
-        if (user.email == null || !isValidEmail(user.email)) {
+        if (user.getEmail() == null || !isValidEmail(user.getEmail())) {
             return false;
         }
-        return user.userType != null && (user.userType.equals("PREMIUM")
-                || user.userType.equals("REGULAR") || user.userType.equals("VIP"));
+        return user.getUserType() != null && (user.getUserType().equals("PREMIUM")
+                || user.getUserType().equals("REGULAR") || user.getUserType().equals("VIP"));
     }
 
     private boolean isValidEmail(String email) {
